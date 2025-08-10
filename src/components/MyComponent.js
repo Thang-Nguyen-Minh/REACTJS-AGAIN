@@ -1,6 +1,6 @@
 import React from 'react'
 import counterReducer from "../redux/reducer/counterReducer";
-import UserInfo from "./UserInfo";
+import AddUserInfo from "./AddUserInfo";
 import DisplayInfo from "./DisplayInfo";
 class MyComponent extends React.Component{
     state={
@@ -22,13 +22,21 @@ class MyComponent extends React.Component{
             }
         ]
     }
+    handleAddUser = (userObj) => {
+        console.log(userObj);
+        this.setState({
+            listUsers: [userObj,...this.state.listUsers],
+        })
+    }
     render(){
         return (
             <div>
 
-                <UserInfo />
+                <AddUserInfo handleAddUser={this.handleAddUser}/>
                 <br/> <br/>
-                <DisplayInfo listUsers={this.state.listUsers} />
+                <DisplayInfo listUsers={this.state.listUsers}
+
+                />
             </div>
         )
     }

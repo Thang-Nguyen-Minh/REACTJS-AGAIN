@@ -8,6 +8,7 @@ class DisplayInfo extends React.Component{
             showInfo: !this.state.showInfo
         })
     }
+
     render(){
         //destructuring
         const {listUsers} = this.props;

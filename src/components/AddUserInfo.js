@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import App from "../App";
-class UserInfo extends Component {
+class AddUserInfo extends Component {
     //this : đại diện cho MyComponent, state là 1 thuộc tính trong đó
     state = {
-        name : "Minh Thắng",
+        name : '',
         address : "Ha Noi",
-        age: 21
+        age: ''
     }
     handleClick = (event) => {
         event.preventDefault();
@@ -30,6 +30,11 @@ class UserInfo extends Component {
         event.preventDefault()
         //Làm gì có thay đổi trên giao diện mà cho vào setState. Hài vl
         console.log(this.state);
+        this.props.handleAddUser({
+            id: Math.floor(Math.random()*100)+1 + '-random',
+            name: this.state.name,
+            age: this.state.age,
+        })
     }
     render() {
         return (
@@ -44,13 +49,11 @@ class UserInfo extends Component {
                     <label>Your name : </label>
                     <input
                         type="text"
-                        value={this.state.name}
                         onChange={(event) => {this.handleChangeInput(event)}}
                     />
                     <label>Your age : </label>
                     <input
                         type="text"
-                        value={this.state.age}
                         onChange={(event) => {this.handleChangeAge(event)}}
                     />
                     <button type="submit">Submit</button>
@@ -59,4 +62,4 @@ class UserInfo extends Component {
         )
     }
 }
-export default UserInfo;
+export default AddUserInfo;
