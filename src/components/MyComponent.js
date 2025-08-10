@@ -25,6 +25,7 @@ class MyComponent extends React.Component{
     render(){
         return (
             <div>
+
                 <UserInfo />
                 <br/> <br/>
                 <DisplayInfo listUsers={this.state.listUsers} />
