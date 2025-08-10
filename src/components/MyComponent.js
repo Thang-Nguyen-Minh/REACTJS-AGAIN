@@ -15,6 +15,17 @@ class MyComponent extends React.Component{
             age: Math.floor(Math.random()*100)+1//Ngẫu nhiên 1 số từ 1 đến 100
         })
     }
+    handleChangeInput = (event) => {
+        event.preventDefault();
+        this.setState({
+            name: event.target.value
+        })
+    }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        //Làm gì có thay đổi trên giao diện mà cho vào setState. Hài vl
+        console.log(this.state);
+    }
     render(){
         return (
             <div>
@@ -24,6 +35,13 @@ class MyComponent extends React.Component{
                 <hr/>
                 My age is {this.state.age}
                 <button onClick={(event) => {this.handleClick(event)}} type="button">Click mee</button>
+                <form onSubmit={(event) => {this.handleSubmit(event)}}>
+                    <input
+                        type="text"
+                        onChange={(event) => {this.handleChangeInput(event)}}
+                    />
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         )
     }
