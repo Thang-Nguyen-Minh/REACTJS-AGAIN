@@ -16,7 +16,7 @@ class MyComponent extends React.Component{
                 age : 19,
             },
             {
-                id: 1,
+                id: 3,
                 name : "Kieu Yen",
                 age : 22,
             }
@@ -28,14 +28,23 @@ class MyComponent extends React.Component{
             listUsers: [userObj,...this.state.listUsers],
         })
     }
+    handleDeleteUser = (id) => {
+        //Phải để let thì mảng mới thay đổi được
+        let listUsersClone=this.state.listUsers;
+        //Phải gán mảng mới vào do filter trả về 1 mảng mới
+        listUsersClone=listUsersClone.filter(item=>item.id!==id);
+        this.setState({
+            listUsers: listUsersClone,
+        })
+    }
     render(){
         return (
             <div>
-
                 <AddUserInfo handleAddUser={this.handleAddUser}/>
                 <br/> <br/>
-                <DisplayInfo listUsers={this.state.listUsers}
-
+                <DisplayInfo
+                    listUsers={this.state.listUsers}
+                    handleDeleteUser={this.handleDeleteUser}
                 />
             </div>
         )

@@ -23,8 +23,13 @@ class DisplayInfo extends React.Component{
                     return (
                         <div>
                             {this.state.showInfo && <div key={user.id} className={user.age > 20 ? "red" : "green"}>
-                                <div>My name is {user.name}</div>
-                                <div>My age is {user.age}</div>
+                                <div>
+                                    <div>My name is {user.name}</div>
+                                    <div>My age is {user.age}</div>
+                                </div>
+                                <div>
+                                    <button onClick={(id)=>this.props.handleDeleteUser(user.id)}>Delete User</button>
+                                </div>
                                 <hr/>
                             </div>}
                         </div>
