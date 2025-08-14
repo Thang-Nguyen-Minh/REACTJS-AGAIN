@@ -1,53 +1,45 @@
-import React from 'react'
+import React,{useState} from 'react'
 import counterReducer from "../redux/reducer/counterReducer";
 import AddUserInfo from "./AddUserInfo";
 import DisplayInfo from "./DisplayInfo";
-class MyComponent extends React.Component{
-    state={
-        listUsers:[
-            {
-                id: 1,
-                name : "Minh Thang",
-                age : 21,
-            },
-            {
-                id: 2,
-                name : "Thanh Binh",
-                age : 19,
-            },
-            {
-                id: 3,
-                name : "Kieu Yen",
-                age : 22,
-            }
-        ]
+const MyComponent = (props) => {
+    const listUsers=[
+        {
+            id: 1,
+            name : "Minh Thang",
+            age : 21,
+        },
+        {
+            id: 2,
+            name : "Thanh Binh",
+            age : 19,
+        },
+        {
+            id: 3,
+            name : "Dang Khoa",
+            age : 22,
+        }
+    ]
+
+    const [user,setUser]=useState(listUsers);
+
+    const handleAddUser = (userObj) => {
+        setUser([userObj,...user]);
     }
-    handleAddUser = (userObj) => {
-        console.log(userObj);
-        this.setState({
-            listUsers: [userObj,...this.state.listUsers],
-        })
+
+    const handleDeleteUser = (id) => {
+        setUser(user.filter(user=>user.id !== id))
     }
-    handleDeleteUser = (id) => {
-        //Phải để let thì mảng mới thay đổi được
-        let listUsersClone=this.state.listUsers;
-        //Phải gán mảng mới vào do filter trả về 1 mảng mới
-        listUsersClone=listUsersClone.filter(item=>item.id!==id);
-        this.setState({
-            listUsers: listUsersClone,
-        })
-    }
-    render(){
-        return (
-            <div>
-                <AddUserInfo handleAddUser={this.handleAddUser}/>
-                <br/> <br/>
-                <DisplayInfo
-                    listUsers={this.state.listUsers}
-                    handleDeleteUser={this.handleDeleteUser}
-                />
-            </div>
-        )
-    }
+
+    return (
+        <div>
+            <AddUserInfo handleAddUser={handleAddUser}/>
+            <br/> <br/>
+            <DisplayInfo
+                listUsers={user}
+                handleDeleteUser={handleDeleteUser}
+            />
+        </div>
+    )
 }
 export default MyComponent;
