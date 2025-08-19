@@ -1,0 +1,140 @@
+body {
+  padding : 20px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.red{
+  color: red;
+}
+.green{
+  color: #00ff08;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+video{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: -1;
+}
+.app-container {
+  .header-container {
+    .btn-login{
+      border-radius : 8px;
+      margin-right : 8px;
+      padding : 0 15px;
+      border: 1px solid #535353;
+      height: 40px;
+    }
+    .btn-signup{
+      border-radius : 8px;
+      margin-left : 8px;
+      padding : 0 15px;
+      background-color: #303030;
+      color: white;
+      height: 40px;
+      &:hover {
+        background-color: black;
+      }
+    }
+    .navbar{
+      z-index: 10;
+      background-color: rgba(0,0,0,0) !important;
+      padding-top: 20px;
+      .nav-link{
+        &.active{
+          color: rgba(255, 0, 81, 0.93);
+        }
+      }
+    }
+  }
+  .homepage-container {
+    .homepage-content{
+      position: relative;
+      padding : 50px;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .title-1{
+        font-size: 50px;
+        font-weight: bold;
+      }
+      .title-2{
+        font-size: 25px;
+      }
+      .title-3{
+        button{
+          border-radius : 10px;
+          padding : 10px;
+          color: white;
+          background-color: black;
+          &:hover{
+            background-color: #564B58;
+          }
+        }
+      }
+    }
+  }
+}
+video{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: -1;
+}
+.navbar-brand {
+  color: #ff0051 !important;
+}
+
+
+.btn-signup:hover{
+  background-color: black;
+  color: white;
+}
